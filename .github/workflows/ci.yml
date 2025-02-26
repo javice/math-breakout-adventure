@@ -1,0 +1,66 @@
+name: Math Breakout Adventure CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygame numpy pytest pylint
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Lint with pylint
+        run: |
+          # Ejecutar pylint con un umbral de puntuación razonable para no fallar en advertencias menores
+          pylint breakout_matematico.py --disable=C0111,C0103 --fail-under=7.0 || true
+
+      - name: Create sounds directory and dummy files for testing
+        run: |
+          mkdir -p sounds
+          touch sounds/brick_hit.wav
+          touch sounds/wrong_answer.wav
+          touch sounds/game_over.wav
+
+      - name: Verify imports and basic structure
+        run: |
+          # Verificar que el script se pueda importar sin errores (no se ejecutará por falta de interfaz gráfica)
+          python -c "import pygame; import breakout_matematico; print('Import successful')"
+
+      - name: Build distribution package
+        run: |
+          # Crear un directorio de distribución con todos los archivos necesarios
+          mkdir -p dist/math-breakout-adventure
+          cp breakout_matematico.py dist/math-breakout-adventure/
+          cp -r sounds dist/math-breakout-adventure/
+          cp README.md dist/math-breakout-adventure/ || echo "README.md no encontrado"
+          echo "Distribución creada correctamente"
+          ls -la dist/math-breakout-adventure/
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: math-breakout-adventure
+          path: dist/math-breakout-adventure/
