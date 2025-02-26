@@ -60,7 +60,7 @@ jobs:
           ls -la dist/math-breakout-adventure/
 
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: math-breakout-adventure
           path: dist/math-breakout-adventure/
