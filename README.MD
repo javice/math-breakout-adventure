@@ -1,9 +1,15 @@
 # Math Breakout Adventure
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Python](https://img.shields.io/badge/python-3.6%2B-yellow.svg)
+![Pygame](https://img.shields.io/badge/pygame-required-red.svg)
 
 ## Descripción
 
 Math Breakout Adventure es un juego educativo que combina la diversión del clásico juego Breakout con desafíos matemáticos. Los jugadores deben romper ladrillos con una pelota y resolver problemas matemáticos para avanzar. Perfecto para estudiantes que desean practicar sus habilidades matemáticas de una manera entretenida.
+
+![Captura de pantalla del juego](https://via.placeholder.com/800x450.png?text=Math+Breakout+Adventure+Screenshot)
 
 ## Características
 
@@ -22,6 +28,18 @@ Math Breakout Adventure es un juego educativo que combina la diversión del clá
 
 ## Instalación
 
+### Opción 1: Instalación desde GitHub Releases
+
+1. Descarga el último [release](https://github.com/tuusuario/math-breakout-adventure/releases) del juego
+2. Descomprime el archivo descargado
+3. Ejecuta el juego con Python:
+```bash
+cd math-breakout-adventure
+python breakout_matematico.py
+```
+
+### Opción 2: Instalación desde el código fuente
+
 1. Clona este repositorio:
 ```bash
 git clone https://github.com/tuusuario/math-breakout-adventure.git
@@ -38,6 +56,15 @@ pip install pygame numpy
 python breakout_matematico.py
 ```
 
+### Opción 3: Instalación usando Make
+
+Si tienes Make instalado, puedes usar el Makefile incluido:
+
+```bash
+make setup  # Instala las dependencias en un entorno virtual
+make run    # Ejecuta el juego
+```
+
 ## Estructura de directorios
 
 ```
@@ -45,6 +72,9 @@ math-breakout-adventure/
 │
 ├── breakout_matematico.py  # Archivo principal del juego
 ├── README.md               # Este archivo
+├── LICENSE.md              # Licencia MIT
+├── CHANGELOG.md            # Historial de cambios
+├── Makefile                # Utilidades para desarrollo
 └── sounds/                 # Carpeta con efectos de sonido
     ├── brick_hit.wav       # Sonido al romper un ladrillo
     ├── wrong_answer.wav    # Sonido al responder incorrectamente
@@ -78,6 +108,32 @@ Puedes modificar varios aspectos del juego editando las constantes al inicio del
 - Número de vidas inicial
 - Velocidad de la pelota
 
+## Desarrollo
+
+### Linting
+
+Para verificar la calidad del código, ejecuta:
+
+```bash
+make lint
+```
+
+### Tests
+
+Para ejecutar las pruebas (cuando estén disponibles):
+
+```bash
+make test
+```
+
+### Limpieza
+
+Para limpiar archivos temporales y el entorno virtual:
+
+```bash
+make clean
+```
+
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
@@ -88,10 +144,16 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 4. Haz push a la rama (`git push origin feature/amazing-feature`)
 5. Abre un Pull Request
 
+Por favor, asegúrate de que tu código pase todas las pruebas de CI antes de enviar el PR.
+
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE.md) para más detalles.
 
 ## Créditos
 
 Desarrollado como un proyecto educativo para promover el aprendizaje de matemáticas a través del juego.
+
+## Historial de Versiones
+
+Consulta el [CHANGELOG](CHANGELOG.md) para ver el historial completo de cambios.
