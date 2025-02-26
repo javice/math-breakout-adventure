@@ -9,7 +9,6 @@
 
 Math Breakout Adventure es un juego educativo que combina la diversión del clásico juego Breakout con desafíos matemáticos. Los jugadores deben romper ladrillos con una pelota y resolver problemas matemáticos para avanzar. Perfecto para estudiantes que desean practicar sus habilidades matemáticas de una manera entretenida.
 
-![Captura de pantalla del juego](https://via.placeholder.com/800x450.png?text=Math+Breakout+Adventure+Screenshot)
 
 ## Características
 
