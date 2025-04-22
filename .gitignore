@@ -1,0 +1,39 @@
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
+
+# Entorno virtual
+venv/
+env/
+ENV/
+
+# Archivos de PyCharm/IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de sonido grandes o binarios
+# Descomenta si quieres excluir los sonidos del repositorio
+# sounds/
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Archivos de puntuaciones altas o guardar partidas
+scores.dat
+savedata.json
